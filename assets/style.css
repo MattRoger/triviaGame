@@ -1,4 +1,58 @@
 body{
+    font-family: 'Bungee', cursive;
     background:peru;
 }
+#game_panel{
+    background: thistle;
+}
+#start_button ,
+#next,
+#playAgain,
+#exit,
+#choices_div button{    
+    background:#031228;
+    color:#FFE81F;
+    border:.25em solid #FFE81F;
+    border-radius: 2.75em
 
+}
+#playAgain,
+#exit{
+    padding:1.25em 2em;
+    margin:1em;
+}
+#start_button ,
+#next
+{
+    font-size: 1.5em;
+    padding:1.35em 2.2em;   
+    display: block;
+    margin: auto
+}
+#choices_div button{
+    width: 90%;
+    display: block;
+    margin:1em auto;
+    font-size: 1.5em;
+    padding-top:1.25em;
+    padding-bottom:1.25em;
+    
+}
+
+#timer{
+    font-family: 'Geostar Fill', cursive;
+    font-size: 1.75em;
+    font-weight: 500;
+    text-align: center;
+    padding:1.25em;
+}
+
+#correct,
+#incorrect,
+#question_div,
+#endGame{
+    font-size:1.25em;
+    padding:1em 1.25em;
+    text-align: center;
+    line-height: 1em;
+}

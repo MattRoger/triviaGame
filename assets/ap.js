@@ -1,61 +1,223 @@
-var answers = {
-    correct: 0,
-    incorrect: 0
-};
-var options = [{
-    question: "In Aladdin, what is the name of Jasmine's pet tiger?",
-    choices: ["Rajah", "Bo", "Iago", "Jack"],
-    correct: 0
+var score = 0;
+var answer;
+var x = 0;
+var round = 0
+var count=10;
+var counter;
+var rank;
+var swQuestion = [{
+    // 1
+    question: "In A New Hope, who did Han solo owe money to?",
+    choices: ["Jar Jar Binks", "Sam Wise", "Darth Vader", "Jabba the Hut"],
+    images: ["../images/Rajah.gif"],
+    validAnswer: "Jabba the Hut"
 }, {
-    question: "In Peter Pan, Captain Hook had a hook on which part of his     body?",
-    choices: ["Right Foot", "Left Hand", "Left Foot", "Right Hand"],
-    correct: 1
+    // 2
+    question: "What Planet were the Clone Troopers created on?",
+    choices: ["Camino", "Hoth", "Yolanda", "Tatooine"],
+    validAnswer: "Camino"
 
-}, {
-    question: "In the Lion King, where does Mufasa and his family live?",
-    choices: ["Rocky Mountain", "Forest", "Desert", "Pride Rock"],
-    correct: 3
+},
+     {
+        // 3
+        question: "In The Empire Strikes Back, what is the name of the creature who attacks luke?",
+        choices: ["Tauntaun", "Yeti", "Wampa", "Wookie"],
+        validAnswer: "Wampa"
 
-}, {
-    question: "In Beauty and the Beast, how many eggs does Gaston eat for    breakfast?",
-    choices: ["2 Dozen", "5 Dozen", "5000", "0"],
-    correct: 1
+    }, {
+        // 4
+        question:"In The Force Awakens, Where does Kylo Ren bring Rey to",
+        choices: ["The Death Star","Star Killer Base", "The Dreadnought", "Fort Doom"],
+        validAnswer:"Star Killer Base"
 
-}, {
-    question: "In Alice in Wonderland, what is the name of Alice’s kitten?",
-    choices: ["Dinah", "Sammie", "Kat", "Luna"],
-    correct: 0
+    }, {
+        // 5
+        question: "In how many languages is C-3P0 fluent?",
+        choices: ["990", "Over 6 Billion", "Over 6 Million", "He only speaks in beeps and boops"],
+        validAnswer: "Over 6 Million"
 
-}, {
-    question: "After being on earth, where did Hercules first meet his   father Zeus?",
-    choices: ["Mount Olympus", "Greece", "In the Temple of Zeus", "Elysian   Fields"],
-    correct: 2
+    }, {
+        // 6
+        question: "In The Last Jedi, what planet does the Resistance make their last stand?",
+        choices: ["Crait", "Canto Bight", "Ahch-To"," Hoth"],
+        validAnswer: "Crait"
 
-}, {
-    question: "During the ballroom scene of Beauty & the Beast, what color is Belle’s Gown?",
-    choices: ["Yellow", "Blue", "Gold", "White"],
-    correct: 2
+    }, {
+        // 7
+        question: "Who is Darth Tyranus als known as?",
+        choices: ["Kylo Ren", "Mace Windu", "Count Dooku", "Emperor Palpatine"],
+        validAnswer: "Count Dooku"
 
-}, {
-    question: "In Bambi, what word does the owl use to describe falling in love?",
-    choices: ["Whimsical", "Miserable", "Joyful", "Twitterpatted"],
-    correct: 3
-}]
-console.log(this.question);
+    }, {
+        // 8
+        question: "Who did Obi-Wan Kenobi defeat in the Battle of Naboo?",
+        choices: ["Darth Mall", "Darth Vader", "Darth Sideous", "Darth Maul"],
+        validAnswer: "Darth Maul"
 
-// function ask ask question and choices
-function ask() {
+    },{
+        //9 
+        question:"What is Anakin Skywalker’s mother’s name?",
+        choices:["Padme", "Shmi", "Shuri", "Leia"],
+        validAnswer:"Shmi"
+    },{
+        // 10
+        question:" What is the name of the order Darth Sidious gives the clone troopers, which means they will kill all Jedi?",
+        choices:["Order 66", "Order 69", "Order 59", "Order 99"],
+        validAnswer:"Order 66"
+    }
+]
+
+$("#start_button").on("click", function () {
+    console.log("clicked")
+    askQuestion()
+    $("#start_div").empty()
+})
+
+function askQuestion() {
+    var q = swQuestion[x].question;
+    $("#question_div").append(q);
+    $("#timer").append(count)
+    renderChoices();
+    timer();
+
+}
+
+answered();
+function renderChoices() {
+    $("#choices_div").empty();
+    for (var i = 0; i < swQuestion[x].choices.length; i++) {
+        const button = $("<button>");
+        button.text(swQuestion[x].choices[i]);
+        button.attr("data-answer", swQuestion[x].choices[i])
+        $("#choices_div").append(button);
+    }
+    console.log("choices asked");
+}
+function answered() {
+    console.log("answered start")
+    $("#choices_div").on("click", "button", function () {
+        clearInterval(counter)
+        var answerGuessed = $(this).attr("data-answer")
+        answer = swQuestion[x].validAnswer;
+        if (answerGuessed === answer) {
+            console.log("Correct")
+            correct()
+        } else {
+            console.log("Incorrect")
+            incorrect()
+        }
+    })
+}
 
 
+function correct() {
+    dump()
+    score += 1;
+    console.log("current score: " + score)
+    var textLine = $("<p>");
+    textLine.text("You are Correct!");
+    var nextRoundBtn = $("<button>").attr("id", "next")
+    nextRoundBtn.text("Next Round")
+    $("#correct").append(textLine, nextRoundBtn);
+    nextRound();
 
-    for (var i =0; i < options.length; i++) {
+
+}
+
+function incorrect() {
+    dump();
+    var textLine = $("<p>");
+    textLine.text("You are Incorrect! The correct answer is " + answer);
+    var nextRoundBtn = $("<button>").attr("id", "next")
+    nextRoundBtn.text("Next Round")
+    $("#incorrect").append(textLine, nextRoundBtn);
+    console.log(`current score:  + ${score}`)
+    nextRound();
+}
+
+function nextRound() {
+    $("#next").on("click", function () {
+        dump();
+        x += 1;
+        round += 1;
+        console.log(round)
+        endGame();
+
+    })
+}
+function dump() {
+    $("#incorrect").empty();
+    $("#correct").empty()
+    $("#question_div").empty();
+    $("#choices_div").empty();
+    $("#endGame").empty();
+    $("#timer").empty();
+}
+function endGame() {
+    const gameLength = swQuestion.length;
+    if (round === gameLength) {
+        dump();
+        ranking()
+        console.log("game has ended")
+        console.log()
+        var endMessage = $("<p>");
+        endMessage.text(`You got ${score} out of ${gameLength}
+       \n Your rank is ${rank}`);
         
-        $("#question_div").text(options[i].question);
-       
-        $("#choices_div").html("<button>" + options[i].choices);
-
+        var playAgainBtn = $("<button>").attr("id", "playAgain");
+        playAgainBtn.text("Play again?");
+        var exitBtn = $("<button>").attr("id", "exit");
+        exitBtn.text("Exit")
+        $("#endGame").append(endMessage, playAgainBtn, exitBtn);
+        playAgain();
+    } else {
+        nextRound()
+        askQuestion()
     }
 }
-$("#start_button").on("click", function () {
-    ask()
-})
+
+function playAgain() {
+    $("#playAgain").on("click", function () {
+        console.log("clicked")
+        dump();
+        round = 0;
+        x = 0;
+        score = 0;
+        askQuestion()
+    })
+}
+function timer() {    
+   count = 10;
+    counter = setInterval(countDown, 1000);
+    function countDown() {
+        count = count - 1;  
+        $("#timer").empty().append(count)
+        if (count <= 0) {
+            console.log("times up")         
+            clearInterval(counter)
+            outOfTime();
+            return
+        }
+    }    
+}
+
+function outOfTime(){
+    dump();
+    var textLine = $("<p>");
+    answer = swQuestion[x].validAnswer;
+    textLine.text("You are Out Of Time! The correct answer is " + answer);
+    var nextRoundBtn = $("<button>").attr("id", "next")
+    nextRoundBtn.text("Next Round")
+    $("#incorrect").append(textLine, nextRoundBtn);
+    console.log(`current score:  + ${score}s`)
+    nextRound();
+    
+}
+function ranking(){
+    console.log(rank)
+    const ranks=["Jar Jar Binks","Service Droid","Ewok", "Padiwan","Smuggler","Resistance Fighter","Bothan Spy","Fleet Commander","Resistance Leader","Jedi Knight", "Jedi Master"]
+    const s=score;
+    rank=ranks[s]
+    console.log(rank+ "x")
+   
+}
