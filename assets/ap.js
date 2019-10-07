@@ -2,69 +2,88 @@ var score = 0;
 var answer;
 var x = 0;
 var round = 0
-var count=10;
+var count = 10;
 var counter;
 var rank;
 var swQuestion = [{
     // 1
     question: "In A New Hope, who did Han solo owe money to?",
-    choices: ["Jar Jar Binks", "Sam Wise", "Darth Vader", "Jabba the Hut"],
-    images: ["../images/Rajah.gif"],
-    validAnswer: "Jabba the Hut"
+    choices: ["Jar Jar Binks", "Sam Wise", "Darth Vader", "Jabba the Hutt"],
+    images: "assets/images/hansolo01.jpg",
+    answerImages: "assets/images/jaba.jpg",
+    validAnswer: "Jabba the Hutt"
 }, {
     // 2
     question: "What Planet were the Clone Troopers created on?",
-    choices: ["Camino", "Hoth", "Yolanda", "Tatooine"],
-    validAnswer: "Camino"
+    choices: ["Kamino", "Hoth", "Yolanda", "Tatooine"],
+    images: "assets/images/clonetrooper.jpg",
+    answerImages: "assets/images/kamino.jpg",
+    validAnswer: "Kamino"
 
 },
-     {
-        // 3
-        question: "In The Empire Strikes Back, what is the name of the creature who attacks luke?",
-        choices: ["Tauntaun", "Yeti", "Wampa", "Wookie"],
-        validAnswer: "Wampa"
+{
+    // 3
+    question: "In The Empire Strikes Back, what is the name of the creature who attacks luke?",
+    choices: ["Tauntaun", "Yeti", "Wampa", "Wookie"],
+    images: "assets/images/luke.jpg",
+    answerImages: "assets/images/wampa.jpg",
+    validAnswer: "Wampa"
 
-    }, {
-        // 4
-        question:"In The Force Awakens, Where does Kylo Ren bring Rey to",
-        choices: ["The Death Star","Star Killer Base", "The Dreadnought", "Fort Doom"],
-        validAnswer:"Star Killer Base"
+}, {
+    // 4
+    question: "In The Force Awakens, Where does Kylo Ren bring Rey to",
+    choices: ["The Death Star", "StarKiller Base", "The Dreadnought", "Fort Doom"],
+    images: "assets/images/reykylo.jpg",
+    answerImages: "assets/images/starkiller.jpg",
+    validAnswer: "StarKiller Base"
 
-    }, {
-        // 5
-        question: "In how many languages is C-3P0 fluent?",
-        choices: ["990", "Over 6 Billion", "Over 6 Million", "He only speaks in beeps and boops"],
-        validAnswer: "Over 6 Million"
+}, {
+    // 5
+    question: "In how many languages is C-3P0 fluent?",
+    choices: ["990", "Over 6 Billion", "Over 6 Million", "He only speaks in beeps and boops"],
+    images: "assets/images/c3po.jpg",
+    answerImages: "assets/images/c3pojaba.jpg",
+    validAnswer: "Over 6 Million"
 
-    }, {
-        // 6
-        question: "In The Last Jedi, what planet does the Resistance make their last stand?",
-        choices: ["Crait", "Canto Bight", "Ahch-To"," Hoth"],
-        validAnswer: "Crait"
+}, {
+    // 6
+    question: "In The Last Jedi, what planet does the Resistance make their last stand?",
+    choices: ["Crait", "Canto Bight", "Ahch-To", " Hoth"],
+    images: "assets/images/resistance.png",
+    answerImages: "assets/images/crait.jpg",
+    validAnswer: "Crait"
 
-    }, {
-        // 7
-        question: "Who is Darth Tyranus als known as?",
-        choices: ["Kylo Ren", "Mace Windu", "Count Dooku", "Emperor Palpatine"],
-        validAnswer: "Count Dooku"
+}, {
+    // 7
+    question: "Who is Darth Tyranus als known as?",
+    choices: ["Kylo Ren", "Mace Windu", "Count Dooku", "Emperor Palpatine"],
+    images: "assets/images/sith.jpg",
+    answerImages: "assets/images/countdooku.jpg",
+    validAnswer: "Count Dooku"
 
-    }, {
-        // 8
-        question: "Who did Obi-Wan Kenobi defeat in the Battle of Naboo?",
-        choices: ["Darth Mall", "Darth Vader", "Darth Sideous", "Darth Maul"],
-        validAnswer: "Darth Maul"
+}, {
+    // 8
+    question: "Who did Obi-Wan Kenobi defeat in the Battle of Naboo?",
+    choices: ["Darth Mall", "Darth Vader", "Darth Sideous", "Darth Maul"],
+    images: "assets/images/obiwan.jpg",
+    answerImages: "assets/images/darthmaul.png",
+    validAnswer: "Darth Maul"
 
-    },{
-        //9 
-        question:"What is Anakin Skywalker’s mother’s name?",
-        choices:["Padme", "Shmi", "Shuri", "Leia"],
-        validAnswer:"Shmi"
-    },{
-        // 10
-        question:" What is the name of the order Darth Sidious gives the clone troopers, which means they will kill all Jedi?",
-        choices:["Order 66", "Order 69", "Order 59", "Order 99"],
-        validAnswer:"Order 66"
-    }
+}, {
+    //9 
+    question: "What is Anakin Skywalker’s mother’s name?",
+    choices: ["Padme", "Shmi", "Shuri", "Leia"],
+    images: "assets/images/shmi.jpeg",
+    answerImages: "assets/images/shmi2.jpg",
+    validAnswer: "Shmi"
+}, {
+    // 10
+    question: " What is the name of the order Darth Sidious gives the clone troopers, which means they will kill all Jedi?",
+    choices: ["Order 66", "Order 69", "Order 59", "Order 99"],
+    images: "assets/images/order66.jpg",
+    answerImages: "assets/images/order662.jpg",
+    validAnswer: "Order 66"
+}
 ]
 
 $("#start_button").on("click", function () {
@@ -74,6 +93,9 @@ $("#start_button").on("click", function () {
 })
 
 function askQuestion() {
+    var image = $("<img>")
+    image.attr("src", swQuestion[x].images)
+    $("#img").append(image)
     var q = swQuestion[x].question;
     $("#question_div").append(q);
     $("#timer").append(count)
@@ -112,13 +134,15 @@ function answered() {
 
 function correct() {
     dump()
+    answerImg()
+    $('audio#correctsound')[0].play()
     score += 1;
     console.log("current score: " + score)
     var textLine = $("<p>");
     textLine.text("You are Correct!");
     var nextRoundBtn = $("<button>").attr("id", "next")
     nextRoundBtn.text("Next Round")
-    $("#correct").append(textLine, nextRoundBtn);
+    $("#question_div").append(textLine, nextRoundBtn);
     nextRound();
 
 
@@ -126,13 +150,21 @@ function correct() {
 
 function incorrect() {
     dump();
+    answerImg()
+    $('audio#incorrectsound')[0].play()
     var textLine = $("<p>");
     textLine.text("You are Incorrect! The correct answer is " + answer);
     var nextRoundBtn = $("<button>").attr("id", "next")
     nextRoundBtn.text("Next Round")
-    $("#incorrect").append(textLine, nextRoundBtn);
+    $("#question_div"
+    ).append(textLine, nextRoundBtn);
     console.log(`current score:  + ${score}`)
     nextRound();
+}
+function answerImg() {
+    var image = $("<img>")
+    image.attr("src", swQuestion[x].answerImages)
+    $("#img").append(image)
 }
 
 function nextRound() {
@@ -141,16 +173,17 @@ function nextRound() {
         x += 1;
         round += 1;
         console.log(round)
+        $('audio#correctsound')[0].load()
+        $('audio#incorrectsound')[0].load()
         endGame();
 
     })
 }
 function dump() {
-    $("#incorrect").empty();
-    $("#correct").empty()
+
     $("#question_div").empty();
     $("#choices_div").empty();
-    $("#endGame").empty();
+    $("#img").empty();
     $("#timer").empty();
 }
 function endGame() {
@@ -163,12 +196,12 @@ function endGame() {
         var endMessage = $("<p>");
         endMessage.text(`You got ${score} out of ${gameLength}
        \n Your rank is ${rank}`);
-        
+
         var playAgainBtn = $("<button>").attr("id", "playAgain");
         playAgainBtn.text("Play again?");
         var exitBtn = $("<button>").attr("id", "exit");
         exitBtn.text("Exit")
-        $("#endGame").append(endMessage, playAgainBtn, exitBtn);
+        $("#question_div").append(endMessage, playAgainBtn, exitBtn);
         playAgain();
     } else {
         nextRound()
@@ -186,38 +219,43 @@ function playAgain() {
         askQuestion()
     })
 }
-function timer() {    
-   count = 10;
+function timer() {
+    count = 10;
     counter = setInterval(countDown, 1000);
     function countDown() {
-        count = count - 1;  
+        count = count - 1;
         $("#timer").empty().append(count)
         if (count <= 0) {
-            console.log("times up")         
+            console.log("times up")
             clearInterval(counter)
             outOfTime();
             return
         }
-    }    
+    }
 }
 
-function outOfTime(){
+function outOfTime() {
     dump();
     var textLine = $("<p>");
     answer = swQuestion[x].validAnswer;
     textLine.text("You are Out Of Time! The correct answer is " + answer);
     var nextRoundBtn = $("<button>").attr("id", "next")
     nextRoundBtn.text("Next Round")
-    $("#incorrect").append(textLine, nextRoundBtn);
+    $("#question_div").append(textLine, nextRoundBtn);
     console.log(`current score:  + ${score}s`)
     nextRound();
-    
+
 }
-function ranking(){
+function ranking() {
     console.log(rank)
-    const ranks=["Jar Jar Binks","Service Droid","Ewok", "Padiwan","Smuggler","Resistance Fighter","Bothan Spy","Fleet Commander","Resistance Leader","Jedi Knight", "Jedi Master"]
-    const s=score;
-    rank=ranks[s]
-    console.log(rank+ "x")
-   
+    const ranks = ["Jar Jar Binks", "Service Droid", "Ewok", "Padawan", "Smuggler", "Resistance Fighter", "Spy", "Fleet Commander", "Resistance Leader", "Jedi Knight", "Jedi Master"]
+    const rankImg = ["assets/images/jarjar.jpg","assets/images/servicedriod.jpg","assets/images/ewok.jpeg","assets/images/padawan.jpg","assets/images/smuggler.jpg","assets/images/resistancefighter.jpg","assets/images/jyn.jpg","assets/images/admiralackbar.jpeg", "assets/images/resistanceleader.png","assets/images/kit.jpeg","assets/images/jedimaster.png"]
+    const s = score;
+    rank = ranks[s]
+
+    var image = $("<img>")
+    image.attr("src", rankImg[s])
+    $("#img").append(image)
+    console.log(rank + "x")
+
 }

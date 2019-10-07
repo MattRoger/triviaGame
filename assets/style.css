@@ -1,9 +1,12 @@
 body{
     font-family: 'Bungee', cursive;
-    background:peru;
+    background-image: url("../assets/images/background1.jpg");
+    background-size: 100%;
+    color:#FFE81F;
+
 }
-#game_panel{
-    background: thistle;
+#start_div{
+    text-align: center;
 }
 #start_button ,
 #next,
@@ -55,4 +58,44 @@ body{
     padding:1em 1.25em;
     text-align: center;
     line-height: 1em;
+}
+#img{
+    display: none;
+}
+@media screen and (min-width:760px){
+    #img{
+        display: block;
+    }
+    #img img{
+        display: block;
+        width:90%;
+        margin: auto;
+
+    }
+}
+
+
+@media screen and (min-width:1024px){
+    body{
+        background-image: url(../assets/images/widebackgroubd.jpg)
+    }
+    #game_panel{
+        width:75%;
+        display:block;
+        margin:auto;
+    }
+    #img img{
+        display: block;
+        width:40%;
+        margin: auto;
+    }
+    #choices_div{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #choices_div button{
+        width: 40%;
+        margin:1em;
+           
+    }
 }
