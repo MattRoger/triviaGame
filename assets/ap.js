@@ -85,6 +85,8 @@ var swQuestion = [{
     validAnswer: "Order 66"
 }
 ]
+$('audio#correctsound')[0].load()
+$('audio#incorrectsound')[0].load()
 
 $("#start_button").on("click", function () {
     console.log("clicked")
@@ -196,7 +198,6 @@ function endGame() {
         var endMessage = $("<p>");
         endMessage.text(`You got ${score} out of ${gameLength}
        \n Your rank is ${rank}`);
-
         var playAgainBtn = $("<button>").attr("id", "playAgain");
         playAgainBtn.text("Play again?");
         var exitBtn = $("<button>").attr("id", "exit");
@@ -236,6 +237,8 @@ function timer() {
 
 function outOfTime() {
     dump();
+    $('audio#incorrectsound')[0].play()
+    answerImg()
     var textLine = $("<p>");
     answer = swQuestion[x].validAnswer;
     textLine.text("You are Out Of Time! The correct answer is " + answer);
