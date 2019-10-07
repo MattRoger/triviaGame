@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Geostar+Fill&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
+
 <body>
-    I am so lost! I signed up for a tutor, hopefully that will help
+    <div id="start_div">
+        <h1>STAR WARS TRIVIA!</h1>
+        <p>How well do you know Star Wars?</p>
+        <p>You have 10 seconds each round to answer the question!</p>
         <button id="start_button">start game</button>
-        <div id="question_div"></div>
+        </div>
+
+    <div id="game_panel">
         <div id="timer"></div>
+        <div id="img"></div>
+        <div id="question_div"></div>
         <div id="choices_div"></div>
-        <div class="correct"></div>
-        <div class="incorrect"></div>
+             </div>
 
+    </div>
 
+    <audio id="correctsound">
+            <source src="assets/sound/r2d2.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="incorrectsound">
+            <source src="assets/sound/vader.mp3" type="audio/mpeg">
+    </audio>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
- <script src="assets/ap.js"></script>   
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/ap.js"></script>
 </body>
+
 </html>
