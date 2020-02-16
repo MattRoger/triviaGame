@@ -153,9 +153,55 @@ function dump() {
     $("#timer").empty();
 }
 ```
+At the end of the game, when all of the questions have been asked the game calls the endGame(). This function also ranks the player with the rank() and aks te  player if they would like to play again with the playAgain(). If the button is clicked, the game restarts.
+```javascript
+function endGame() {
+    let gameLength = swQuestion.length;
+    if (round === gameLength) {
+        dump();
+        ranking()
+        console.log("game has ended")
+        console.log()
+        var endMessage = $("<p>");
+        endMessage.text(`You got ${score} out of ${gameLength}
+       \n Your rank is ${rank}`);
+        var playAgainBtn = $("<button>").attr("id", "playAgain");
+        playAgainBtn.text("Play again?");
+        var exitBtn = $("<button>").attr("id", "exit");
+        exitBtn.text("Exit")
+        $("#question_div").append(endMessage, playAgainBtn, exitBtn);
+        playAgain();
+    } else {
+        nextRound()
+        askQuestion()
+    }
+}
+function playAgain() {
+    $("#playAgain").on("click", function () {
+        console.log("clicked")
+        dump();
+        round = 0;
+        x = 0;
+        score = 0;
+        askQuestion()
+    })
+}
+```
+The ranking() assigns a user rank based on their scores.
 
-
-
+```javascript
+function ranking() {
+    console.log(rank)
+    const ranks = ["Jar Jar Binks", "Service Droid", "Ewok", "Padawan", "Smuggler", "Resistance Fighter", "Spy", "Fleet Commander", "Resistance Leader", "Jedi Knight", "Jedi Master"]
+    const rankImg = ["assets/images/jarjar.jpg", "assets/images/servicedriod.jpg", "assets/images/ewok.jpeg", "assets/images/padawan.jpg", "assets/images/smuggler.jpg", "assets/images/resistancefighter.jpg", "assets/images/jyn.jpg", "assets/images/admiralackbar.jpeg", "assets/images/resistanceleader.png", "assets/images/kit.jpeg", "assets/images/jedimaster.png"]
+    const s = score;
+    rank = ranks[s]
+    const image = $("<img>")
+    image.attr("src", rankImg[s])
+    $("#img").append(image)
+    console.log(rank + "x")
+}
+```
 ## Features
 
 * Timer Function
@@ -166,13 +212,8 @@ function dump() {
 * :trident: Fork it
 * :sheep: Clone it
 
-
-## API Reference
-
-## Tests
-
 ## How to use?
-
+Start the game and answer the questions
 
 ## Credits / Contact information
 * @MattRoger 
