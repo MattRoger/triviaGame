@@ -94,7 +94,8 @@ function timer() {
     }
 }
 ```
-
+:x:	
+:woman_shrugging:
 The outOfTime function() occurs when the user runs out of time. It also triggers the dump(), answerImg(), and the nextRound()
 ```javascript
 function outOfTime() {
@@ -111,6 +112,8 @@ function outOfTime() {
     nextRound();
 }
 ```
+:x:	
+:man_facepalming:
 If the user answers incorrectly the dump(), answerImg(), and nextRound() are called. 
 ```javascript
 function incorrect() {
@@ -128,7 +131,8 @@ function incorrect() {
 }
 
 ```
-
+:heavy_check_mark:
+:trophy:
 If the user answers correctly the dump(), answerImg(), and nextRound() are called. 
 The users score increase by one.
 ```javascript
