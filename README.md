@@ -38,7 +38,7 @@ const swQuestion = [{
 },
 ```
 #### Functions
-This starts the game by calling the askQuestion() and clearing out the start div.
+This starts the game by calling the askQuestion() and clearing out the start div. :crossed_flags:
 
 ```javascript
 $("#start_button").on("click", function () {
