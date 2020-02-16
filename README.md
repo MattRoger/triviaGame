@@ -74,7 +74,7 @@ renderChoices creates the users possible answer choices.
     console.log("choices asked");
 }
 ```
-The timer() counds down from 10 seconds. If the user runs out of time, the outOfTime() is called
+The timer() counds down from 10 seconds. If the user runs out of time, the outOfTime() is called. Each round the timer is reset with the dump()
 ```javascript
 function timer() {
     count = 10;
@@ -91,6 +91,69 @@ function timer() {
     }
 }
 ```
+
+The outOfTime function() occurs when the user runs out of time. It also triggers the dump(), answerImg(), and the nextRound()
+```javascript
+function outOfTime() {
+    dump();
+    $('audio#incorrectsound')[0].play()
+    answerImg()
+    const textLine = $("<p>");
+    answer = swQuestion[x].validAnswer;
+    textLine.text("You are Out Of Time! The correct answer is " + answer);
+    const nextRoundBtn = $("<button>").attr("id", "next")
+    nextRoundBtn.text("Next Round")
+    $("#question_div").append(textLine, nextRoundBtn);
+    console.log(`current score:  + ${score}s`)
+    nextRound();
+}
+```
+If the user answers incorrectly the dump(), answerImg(), and nextRound() are called. 
+```javascript
+function incorrect() {
+    dump();
+    answerImg()
+    $('audio#incorrectsound')[0].play()
+    const textLine = $("<p>");
+    textLine.text("You are Incorrect! The correct answer is " + answer);
+    const nextRoundBtn = $("<button>").attr("id", "next")
+    nextRoundBtn.text("Next Round")
+    $("#question_div"
+    ).append(textLine, nextRoundBtn);
+    console.log(`current score:  + ${score}`)
+    nextRound();
+}
+
+```
+
+If the user answers correctly the dump(), answerImg(), and nextRound() are called. 
+The users score increase by one.
+```javascript
+function correct() {
+    dump()
+    answerImg()
+    $('audio#correctsound')[0].play()
+    score += 1;
+    console.log("current score: " + score)
+    const textLine = $("<p>");
+    textLine.text("You are Correct!");
+    const nextRoundBtn = $("<button>").attr("id", "next")
+    nextRoundBtn.text("Next Round")
+    $("#question_div").append(textLine, nextRoundBtn);
+    nextRound();
+}
+
+```
+The dump() clears out the question, choices, img, and time divs. allowing for the next round to load.
+```javascript
+function dump() {
+    $("#question_div").empty();
+    $("#choices_div").empty();
+    $("#img").empty();
+    $("#timer").empty();
+}
+```
+
 
 
 ## Features
