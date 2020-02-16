@@ -47,6 +47,7 @@ $("#start_button").on("click", function () {
     $("#start_div").empty()
 })
 ```
+:grey_question:
 The askQuestion function builds up each question by using the swQuestion array. x = the array element
 
 ```javascript
@@ -61,6 +62,7 @@ function askQuestion() {
     timer();
 }
 ```
+:raising_hand_man:
 renderChoices creates the users possible answer choices.
 ```javascript
  $("#choices_div").empty();
@@ -74,6 +76,7 @@ renderChoices creates the users possible answer choices.
     console.log("choices asked");
 }
 ```
+:hourglass_flowing_sand:
 The timer() counds down from 10 seconds. If the user runs out of time, the outOfTime() is called. Each round the timer is reset with the dump()
 ```javascript
 function timer() {
