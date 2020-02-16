@@ -151,6 +151,7 @@ function correct() {
 }
 
 ```
+:wastebasket:	
 The dump() clears out the question, choices, img, and time divs. allowing for the next round to load.
 ```javascript
 function dump() {
@@ -160,6 +161,7 @@ function dump() {
     $("#timer").empty();
 }
 ```
+:checkered_flag:	
 At the end of the game, when all of the questions have been asked the game calls the endGame(). This function also ranks the player with the rank() and aks te  player if they would like to play again with the playAgain(). If the button is clicked, the game restarts.
 ```javascript
 function endGame() {
@@ -194,6 +196,10 @@ function playAgain() {
     })
 }
 ```
+:1st_place_medal:	
+:2nd_place_medal:	
+:3rd_place_medal:	
+
 The ranking() assigns a user rank based on their scores.
 
 ```javascript
