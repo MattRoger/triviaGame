@@ -37,7 +37,7 @@ const swQuestion = [{
     validAnswer: "Jabba the Hutt"
 },
 ```
-#### Functions
+#### Functions :game_die:
 This starts the game by calling the askQuestion() and clearing out the start div. :crossed_flags:
 
 ```javascript
