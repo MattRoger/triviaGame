@@ -13,10 +13,10 @@ To create a multilple choice timed trivia game with JavaScript and jQuery.
 Compete and ready to crush the rebellion with one swift stroke!
 
 ## Tech/framework used
-HTML
-CSS
-JavaScript
-jQuery
+* HTML
+* CSS
+* JavaScript
+* jQuery
 
 ## How The Game Logic Works
 #### Question and Answer Array 
