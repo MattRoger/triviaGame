@@ -1,6 +1,8 @@
 # Star Wars Trivia
 A star wars trivia game
 
+[Test Your Knowledge and Play the Game](https://mattroger.github.io/triviaGame/)
+
 ## Motivation
 To create a multilple choice timed trivia game with JavaScript and jQuery.
 
