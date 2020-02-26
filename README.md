@@ -88,7 +88,7 @@ renderChoices creates the users possible answer choices.
 }
 ```
 :hourglass_flowing_sand:
-The timer() counds down from 10 seconds. If the user runs out of time, the outOfTime() is called. Each round the timer is reset with the dump()
+The timer function counts down from 10 seconds. If the user runs out of time, the outOfTime function is called. Each round the timer is reset with the dump function.
 ```javascript
 function timer() {
     count = 10;
@@ -105,10 +105,9 @@ function timer() {
     }
 }
 ```
-### Wrong Answer
-:x:	
-:man_facepalming:
-If the user answers incorrectly or runs out of time the dump, answerImg, and nextRound functions are called. 
+### Wrong Answer :x: :man_facepalming:
+If the user answers incorrectly or runs out of time the dump, answerImg, and nextRound functions are called.
+The incorrect sound clip also plays.
 
 ![wrong](https://github.com/MattRoger/screenshots/blob/master/webProjectScreenShots/starWarsTrivia/wrong.png?raw=true)
 
@@ -128,9 +127,9 @@ function incorrect() {
 }
 
 ```
-:heavy_check_mark:
-:trophy:
-If the user answers correctly the dump, answerImg, and nextRound functions are called. 
+
+### Correct Answer :heavy_check_mark: :trophy:
+If the user answers correctly the dump, answerImg, and nextRound functions are called.
 The users score increase by one.
 The correct sound clip plays
 
@@ -154,46 +153,14 @@ function correct() {
 
 ```
 
-:checkered_flag:	
-At the end of the game, when all of the questions have been asked the game calls the endGame(). This function also ranks the player with the rank() and aks te  player if they would like to play again with the playAgain(). If the button is clicked, the game restarts.
-```javascript
-function endGame() {
-    let gameLength = swQuestion.length;
-    if (round === gameLength) {
-        dump();
-        ranking()
-        console.log("game has ended")
-        console.log()
-        var endMessage = $("<p>");
-        endMessage.text(`You got ${score} out of ${gameLength}
-       \n Your rank is ${rank}`);
-        var playAgainBtn = $("<button>").attr("id", "playAgain");
-        playAgainBtn.text("Play again?");
-        var exitBtn = $("<button>").attr("id", "exit");
-        exitBtn.text("Exit")
-        $("#question_div").append(endMessage, playAgainBtn, exitBtn);
-        playAgain();
-    } else {
-        nextRound()
-        askQuestion()
-    }
-}
-function playAgain() {
-    $("#playAgain").on("click", function () {
-        console.log("clicked")
-        dump();
-        round = 0;
-        x = 0;
-        score = 0;
-        askQuestion()
-    })
-}
-```
-:1st_place_medal:	
-:2nd_place_medal:	
-:3rd_place_medal:	
+### End of the Game :checkered_flag:	
+At the end of the game, when all of the questions have been asked the game calls the endGame function. This function also ranks the player with the rank function and ask the  player if they would like to play again with the playAgain(). If the button is clicked, the game restarts.
 
-The ranking() assigns a user rank based on their scores.
+### Ranking :1st_place_medal: :2nd_place_medal:	:3rd_place_medal:	
+
+The ranking function assigns a user rank based on their scores. The Rank of Jedi Master is awarded to a user with a perfect score, and Jar Jar Binks if they fail to answer a single question correctly.
+
+![rank](https://github.com/MattRoger/screenshots/blob/master/webProjectScreenShots/starWarsTrivia/rank.png?raw=true)
 
 ```javascript
 function ranking() {
