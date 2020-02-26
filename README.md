@@ -105,27 +105,13 @@ function timer() {
     }
 }
 ```
-:x:	
-:woman_shrugging:
-The outOfTime function() occurs when the user runs out of time. It also triggers the dump(), answerImg(), and the nextRound()
-```javascript
-function outOfTime() {
-    dump();
-    $('audio#incorrectsound')[0].play()
-    answerImg()
-    const textLine = $("<p>");
-    answer = swQuestion[x].validAnswer;
-    textLine.text("You are Out Of Time! The correct answer is " + answer);
-    const nextRoundBtn = $("<button>").attr("id", "next")
-    nextRoundBtn.text("Next Round")
-    $("#question_div").append(textLine, nextRoundBtn);
-    console.log(`current score:  + ${score}s`)
-    nextRound();
-}
-```
+### Wrong Answer
 :x:	
 :man_facepalming:
-If the user answers incorrectly the dump(), answerImg(), and nextRound() are called. 
+If the user answers incorrectly or runs out of time the dump, answerImg, and nextRound functions are called. 
+
+![wrong](https://github.com/MattRoger/screenshots/blob/master/webProjectScreenShots/starWarsTrivia/wrong.png?raw=true)
+
 ```javascript
 function incorrect() {
     dump();
@@ -144,8 +130,13 @@ function incorrect() {
 ```
 :heavy_check_mark:
 :trophy:
-If the user answers correctly the dump(), answerImg(), and nextRound() are called. 
+If the user answers correctly the dump, answerImg, and nextRound functions are called. 
 The users score increase by one.
+The correct sound clip plays
+
+![correct]("https://github.com/MattRoger/screenshots/blob/master/webProjectScreenShots/starWarsTrivia/correct.png?raw=true")
+
+
 ```javascript
 function correct() {
     dump()
