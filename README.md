@@ -1,10 +1,10 @@
 # Star Wars Trivia
-A timed Star Wars Trivia Game! Players are asked 10 multiple choice questions and are given 10 seconds to answer. If the user answers correcty, they are awarded a point and the correct sound clip plays, otherwise the incorrect sound clip plays. At the end of the game, the user is given a rank.
+A timed Star Wars Trivia Game! Players are asked 10 multiple choice questions and are given 10 seconds to answer. If the user answers correcty, they are awarded a point and the correct sound clip plays, otherwise the incorrect sound clip plays. At the end of the game, the user is awarded a rank from Jar Jar Binks if the to poorley, to Jedi Master if they get a perfect score.
 
 [Test Your Knowledge and Play the Game](https://mattroger.github.io/triviaGame/)
 
 ## How to use?
-Start the game and answer the questions.
+Start the game and answer the questions with in 10 seconds. Turn on sound if you want to hear the sound clips.
 
 ## Motivation
 To create a multilple choice timed trivia game with JavaScript and jQuery.
@@ -19,19 +19,9 @@ JavaScript
 jQuery
 
 ## How The Game Logic Works
-
-#### Game Variables 
-```javascript
-let score = 0;
-let answer;
-// x is in place of i for array placement
-let x = 0;
-let round = 0
-let count = 10;
-let counter;
-let rank;
-```
 #### Question and Answer Array 
+This is a sample of what the array for each question looks like
+
 ```javascript
 const swQuestion = [{
     // 1
@@ -42,7 +32,10 @@ const swQuestion = [{
     validAnswer: "Jabba the Hutt"
 },
 ```
-#### Functions :game_die:
+
+#### Start Of the Game :game_die:
+![Start](https://github.com/MattRoger/screenshots/blob/master/webProjectScreenShots/starWarsTrivia/home.png?raw=true)
+
 This starts the game by calling the askQuestion() and clearing out the start div. :crossed_flags:
 
 ```javascript
@@ -52,6 +45,8 @@ $("#start_button").on("click", function () {
     $("#start_div").empty()
 })
 ```
+
+
 :grey_question:
 The askQuestion function builds up each question by using the swQuestion array. x = the array element
 
