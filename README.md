@@ -133,7 +133,7 @@ If the user answers correctly the dump, answerImg, and nextRound functions are c
 The users score increase by one.
 The correct sound clip plays
 
-![correct]("https://github.com/MattRoger/screenshots/blob/master/webProjectScreenShots/starWarsTrivia/correct.png?raw=true")
+![correct](https://github.com/MattRoger/screenshots/blob/master/webProjectScreenShots/starWarsTrivia/correct.png?raw=true)
 
 
 ```javascript
