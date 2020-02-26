@@ -1,7 +1,10 @@
 # Star Wars Trivia
-A star wars trivia game
+A timed Star Wars Trivia Game! Players are asked 10 multiple choice questions and are given 10 seconds to answer. If the user answers correcty, they are awarded a point and the correct sound clip plays, otherwise the incorrect sound clip plays. At the end of the game, the user is given a rank.
 
 [Test Your Knowledge and Play the Game](https://mattroger.github.io/triviaGame/)
+
+## How to use?
+Start the game and answer the questions.
 
 ## Motivation
 To create a multilple choice timed trivia game with JavaScript and jQuery.
@@ -226,9 +229,6 @@ function ranking() {
 ## Installation
 * :trident: Fork it
 * :sheep: Clone it
-
-## How to use?
-Start the game and answer the questions
 
 ## Credits / Contact information
 * @MattRoger 
