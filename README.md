@@ -56,6 +56,8 @@ $("#start_button").on("click", function () {
 ### Asking The Questions
 The questions screen is created with the askQuestion, renderChoices, and timer functions.
 
+![questions](https://github.com/MattRoger/screenshots/blob/master/webProjectScreenShots/starWarsTrivia/question.png?raw=true)
+
 :grey_question:
 The askQuestion function builds up each question by using the swQuestion array. x = the array element
 
@@ -160,16 +162,7 @@ function correct() {
 }
 
 ```
-:wastebasket:	
-The dump() clears out the question, choices, img, and time divs. allowing for the next round to load.
-```javascript
-function dump() {
-    $("#question_div").empty();
-    $("#choices_div").empty();
-    $("#img").empty();
-    $("#timer").empty();
-}
-```
+
 :checkered_flag:	
 At the end of the game, when all of the questions have been asked the game calls the endGame(). This function also ranks the player with the rank() and aks te  player if they would like to play again with the playAgain(). If the button is clicked, the game restarts.
 ```javascript
