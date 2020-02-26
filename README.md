@@ -36,9 +36,11 @@ const swQuestion = [{
 ### Start Of the Game :game_die:
 
 The start screen on larger displays.
+
 ![Start](https://github.com/MattRoger/screenshots/blob/master/webProjectScreenShots/starWarsTrivia/home.png?raw=true)
 
 Mobile users get a different background.
+
 ![StartM](https://github.com/MattRoger/screenshots/blob/master/webProjectScreenShots/starWarsTrivia/homeMobile.png?raw=true)
 
 This starts the game by calling the askQuestion() and clearing out the start div. :crossed_flags:
